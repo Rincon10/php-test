@@ -72,7 +72,7 @@ function insertPerson( Persona $persona, PDO $db ) {
     
     try{
         $insert = "INSERT INTO Persona".$string[0]."values".$string[1];
-        echo $insert;
+
         // Preparamos la insercion
         $stmt = $db->prepare($insert);
     
@@ -109,5 +109,20 @@ function dropTable( string $name, PDO $db ) {
     catch( Exception $exception ){
         echo "<br>";
         echo "Error al eliminar la tabla".$name.": ".$exception->getMessage();
+    }
+}
+
+function createTeable( string $code, PDO $db ){
+    try{
+        // Preparamos la creacion de la tabla
+        $stmt = $db->prepare($code);
+    
+        // Ejecutamos
+        $stmt->execute();
+    }
+
+    catch( Exception $exception ){
+        echo "<br>";
+        echo "Error al crear la tabla".": ".$exception->getMessage();
     }
 }
