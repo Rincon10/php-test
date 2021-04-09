@@ -7,22 +7,22 @@ PDO::PARAM_BOOL solo permite valores booleanos (true/false).
 PDO::PARAM_NULL solo permite el tipo de datos NULL */
 
 /* DATABASE CONFIGURATION Postgresql*/
-/* 
+
 define('motor', 'pgsql');
 define('dbname', 'leonardodb');
 define('dbuser', 'leonardo');
 define('dbpasswd', 'leonardo');
 define('pc', '10.2.77.166');
-define('port', '5432'); */
+define('port', '5432');
 
 /* DATABASE CONFIGURATION MySQL*/
-define('motor', 'mysql');
+/* define('motor', 'mysql');
 define('dbname', 'ivanDB');
 define('dbuser', 'ivan');
 define('dbpasswd', 'admin');
 define('pc', '10.2.77.167');
 define('port', '3306');
-
+ */
 
 /**
  *Funcion que realiza la conexion a la base de datos segun corresponda 
@@ -64,22 +64,21 @@ function query( string $tableName, PDO $db ){
 
 /**
  * Funcion que realiza una consulta a la tabla ingresada
- * @param persona Persona, Persona a insertar a la base de datos
+ * @param lugar Lugar, lugar a insertar a la base de datos
  * @param db PDO, conexion a la base de datos
  */
-function insertPerson( Persona $persona, PDO $db ) {
-    $string = $persona->toStringDB();
+function insertLugar( Lugar $lugar, PDO $db ) {
+    $string = $lugar->toStringDB();
     
     try{
-        $insert = "INSERT INTO Persona".$string[0]."values".$string[1];
+        $insert = "INSERT INTO Lugar".$string[0]."values".$string[1];
 
         // Preparamos la insercion
         $stmt = $db->prepare($insert);
     
         // Casteamos los valores
-        $stmt->bindParam('cc',$persona->get, PDO::PARAM_INT, 11);
-        $stmt->bindParam('nombres',$persona->get, PDO::PARAM_STR, 120);
-        $stmt->bindParam('apellidos',$persona->get, PDO::PARAM_STR, 120);
+        $stmt->bindParam('ciudad',$lugar->get, PDO::PARAM_STR, 40);
+        $stmt->bindParam('pais',$lugar->get, PDO::PARAM_STR, 40);
 
         // Ejecutamos
         $stmt->execute();
@@ -112,7 +111,7 @@ function dropTable( string $name, PDO $db ) {
     }
 }
 
-function createTeable( string $code, PDO $db ){
+function createTable( string $code, PDO $db ){
     try{
         // Preparamos la creacion de la tabla
         $stmt = $db->prepare($code);

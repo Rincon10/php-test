@@ -10,29 +10,24 @@
     
     <body>
         <div style="margin: 10px;">
-            <form id="form-persona" action="" method="POST">
-                <div ><h2>Insertar nueva persona</h2></div>
+            <form id="form-lugar" action="" method="POST">
+                <div ><h2>Insertar nuevo lugar</h2></div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                <label for="cedula">Cedula </label>
-                <input name="cc" type="number" class="form-control" id="cc" placeholder="CC" >
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="nombres">Nombres</label>
-                    <input name="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres">
+                    <label for="Ciudad">Ciudad</label>
+                    <input name="ciudad" type="text" class="form-control" id="ciudad" placeholder="ciudad">
                 </div>
             <div class="form-group col-md-6">
-                <label for="apellidos">Apellidos</label>
-                <input name="apellidos" type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                <label for="pais">Pais</label>
+                <input name="pais" type="text" class="form-control" id="pais" placeholder="Pais">
             </div>
+                <div class="form-group" >
+                    <button id="insert" name="insertar" type="submit" class="btn btn-primary  btn-block">Insertar</button>
+                </div>
                 </div>
             
                 </div>
-                <div class="form-group">
-            <button id="insert" name="insertar" type="submit" class="btn btn-primary  btn-block">Insertar</button>
-                </div>
-                </form>
+            </form>
             
                 <form id="form-drop" action="" method="POST">
                 <div ><h2>Eliminar una tabla </h2></div>
@@ -60,23 +55,10 @@
         
         </div>
     <?php
-    /******************************Arreglos*************************************** */
-    $personas = array();
-
-    /******************************Importando************************************** */
-    /**
-     * funcion que importara las clases y funciones necesarias de functions
-     */
-    function myAutoload($class) {    
-        require __DIR__.'/includes/functions/'.$class.'.php';
-    }
-
-
-    // Importando con AutoLoad 
-    spl_autoload_register('myAutoload');
-    // Icluyendo la base de datos
+    // Icluyendo la base de datos y funciones
     require 'includes/config/database.php';
     require 'includes/functions/functions.php';
+    require 'includes/functions/Lugar.php';
 
 
     /***************************Creando Conexion DB******************************** */

@@ -1,7 +1,6 @@
 <?php
 
 class Lugar{
-    private $idLugar;
     private $ciudad;
     private $pais;
     
@@ -11,9 +10,8 @@ class Lugar{
      * @param string ciudad, Nombre de la ciudad en que se encuentra el lugar
      * @param string pais, Nombre del pais al que pertenece el lugar
      */
-    public function __construct($idLugar,$ciudad,$pais)
+    public function __construct($ciudad,$pais)
     {
-        $this->idLugar = $idLugar;
         $this->ciudad = $ciudad;
         $this->pais = $pais;
     }
@@ -23,16 +21,8 @@ class Lugar{
      * @return String, sintaxis que usará para insertar nuevos registros
      */
     public function toStringDB() {
-        return ["(idLugar, ciudad, pais)","(".$this->idLugar.", '".$this->ciudad."', '".$this->pais."');"];
+        return ["(ciudad, pais)","(".$this->ciudad."', '".$this->pais."');"];
     } 
-
-    /**
-     * metodo que retorna el atributo CC
-     * @return int, que representa la cc de la persona 
-     */
-    public function getIdLugar() {
-        return $this->idLugar;
-    }
     
     /**
      * metodo que retorna los ciudad de la persona
