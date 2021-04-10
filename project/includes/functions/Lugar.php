@@ -10,7 +10,7 @@ class Lugar{
      * @param string ciudad, Nombre de la ciudad en que se encuentra el lugar
      * @param string pais, Nombre del pais al que pertenece el lugar
      */
-    public function __construct($ciudad,$pais)
+    public function __construct( string $ciudad, string $pais)
     {
         $this->ciudad = $ciudad;
         $this->pais = $pais;

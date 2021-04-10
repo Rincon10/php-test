@@ -77,8 +77,8 @@ function insertLugar( Lugar $lugar, PDO $db ) {
         $stmt = $db->prepare($insert);
     
         // Casteamos los valores
-        $stmt->bindParam('ciudad',$lugar->get, PDO::PARAM_STR, 40);
-        $stmt->bindParam('pais',$lugar->get, PDO::PARAM_STR, 40);
+        $stmt->bindParam('ciudad',$lugar->getCiudad(), PDO::PARAM_STR, 40);
+        $stmt->bindParam('pais',$lugar->getPais(), PDO::PARAM_STR, 40);
 
         // Ejecutamos
         $stmt->execute();
@@ -113,7 +113,7 @@ function dropTable( string $name, PDO $db ) {
 
 function createTable( string $code, PDO $db ){
     try{
-        // Preparamos la creacion de la tabla
+        // Prepara"mos la creacion de la tabla
         $stmt = $db->prepare($code);
     
         // Ejecutamos
