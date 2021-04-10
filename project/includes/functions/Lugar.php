@@ -10,7 +10,7 @@ class Lugar{
      * @param string ciudad, Nombre de la ciudad en que se encuentra el lugar
      * @param string pais, Nombre del pais al que pertenece el lugar
      */
-    public function __construct( string $ciudad, string $pais)
+    public function __construct(  $ciudad,  $pais)
     {
         $this->ciudad = $ciudad;
         $this->pais = $pais;
@@ -21,7 +21,7 @@ class Lugar{
      * @return String, sintaxis que usará para insertar nuevos registros
      */
     public function toStringDB() {
-        return ["(ciudad, pais)","(".$this->ciudad."', '".$this->pais."');"];
+        return ["(ciudad, pais)","('".$this->ciudad."', '".$this->pais."');"];
     } 
     
     /**

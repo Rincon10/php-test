@@ -71,7 +71,7 @@ function insertLugar( Lugar $lugar, PDO $db ) {
     $string = $lugar->toStringDB();
     
     try{
-        $insert = "INSERT INTO Lugar".$string[0]."values".$string[1];
+        $insert = "INSERT INTO Lugar".$string[0]." values".$string[1];
 
         // Preparamos la insercion
         $stmt = $db->prepare($insert);
