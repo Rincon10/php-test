@@ -1,16 +1,18 @@
 <?php
 
 function readForms( PDO $db ) {
-    echo "entree";
-    if( isset($_POST['ciudad'] ) ) {
+    echo $db;
+    echo $_POST['ciudad'];
+    echo "pase";
+    if( isset($_POST['ciudad'] ) && $_POST['ciudad'] <> '') {
         $ciudad = readInputLugar();
         insertLugar( $ciudad, $db);
     }
-    else if ( isset($_POST['codigo']) ) {
+    else if (  isset($_POST['codigo']) && $_POST['codigo'] <> '' ) {
         $code = $_POST['codigo'];        
         createTable($code, $db);
     }
-    else if ( isset($_POST['nombreTabla'] ) ) {
+    else if ( isset($_POST['nombreTabla'] ) && $_POST['nombreTabla'] <> '' ) {
         $nombre = $_POST['nombreTabla'];
         dropTable($nombre, $db);
     }
