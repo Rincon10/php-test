@@ -1,9 +1,11 @@
 <?php
 
 function readForms( PDO $db ) {
+    echo "entre";
     echo $db;
+    echo "lei la db";
     echo $_POST['ciudad'];
-    echo "pase";
+    echo "pase el post";
     if( isset($_POST['ciudad'] ) && $_POST['ciudad'] <> '') {
         $ciudad = readInputLugar();
         insertLugar( $ciudad, $db);
