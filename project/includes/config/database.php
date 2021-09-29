@@ -7,22 +7,24 @@ PDO::PARAM_BOOL solo permite valores booleanos (true/false).
 PDO::PARAM_NULL solo permite el tipo de datos NULL */
 
 /* DATABASE CONFIGURATION Postgresql*/
-/* 
+ 
 define('motor', 'pgsql');
-define('dbname', 'leonardodb');
-define('dbuser', 'leonardo');
-define('dbpasswd', 'leonardo');
-define('pc', '10.2.77.166');
-define('port', '5432'); */
+define('dbname', 'ivandb');
+define('dbuser', 'ivan');
+define('dbpasswd', '');
+define('pc', '192.168.20.6');
+define('port', '5432'); 
+
 
 /* DATABASE CONFIGURATION MySQL*/
+/*
 define('motor', 'mysql');
 define('dbname', 'ivanDB');
 define('dbuser', 'ivan');
 define('dbpasswd', 'admin');
 define('pc', '10.2.77.167');
 define('port', '3306');
-
+*/
 
 /**
  *Funcion que realiza la conexion a la base de datos segun corresponda 
